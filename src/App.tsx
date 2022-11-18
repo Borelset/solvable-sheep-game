@@ -27,15 +27,9 @@ const App: FC<{ theme: Theme<any> }> = ({ theme: initTheme }) => {
     const [diyDialogShow, setDiyDialogShow] = useState<boolean>(false);
 
     // 读取缓存关卡得分
-    const [initLevel, setInitLevel] = useState<number>(
-        Number(localStorage.getItem(LAST_LEVEL_STORAGE_KEY) || '1')
-    );
-    const [initScore, setInitScore] = useState<number>(
-        Number(localStorage.getItem(LAST_SCORE_STORAGE_KEY) || '0')
-    );
-    const [initTime, setInitTime] = useState<number>(
-        Number(localStorage.getItem(LAST_TIME_STORAGE_KEY) || '0')
-    );
+    const [initLevel, setInitLevel] = useState<number>(Number('1'));
+    const [initScore, setInitScore] = useState<number>(Number('0'));
+    const [initTime, setInitTime] = useState<number>(Number('0'));
 
     const changeTheme = (theme: Theme<any>) => {
         localStorage.setItem(PLAYING_THEME_ID_STORAGE_KEY, theme.title);
