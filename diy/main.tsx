@@ -34,13 +34,13 @@ export const getDefaultTheme: () => Theme<DefaultSoundNames> = () => {
                 src: 'https://minio.streakingman.com/solvable-sheep-game/sound-triple.mp3',
             },
         ],
-        bgm: 'https://minio.streakingman.com/solvable-sheep-game/sound-disco.mp3',
+        bgm: 'AintNoRestForTheWicked.mp3',
     };
 };
 
 const diytheme = getDefaultTheme();
 
-//domRelatedOptForTheme(diytheme);
+domRelatedOptForTheme(diytheme);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>

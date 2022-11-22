@@ -128,7 +128,7 @@ export const deleteThemeUnusedSounds = (theme: Theme<any>) => {
 
 export const domRelatedOptForTheme = (theme: Theme<any>) => {
     document.body.style.backgroundColor = theme.backgroundColor || 'white';
-    document.body.style.color = theme.dark ? 'white' : 'rgb(0 0 0 / 60%)';
+    document.body.style.color = 'rgb(0 0 0 / 60%)';
 };
 
 export const getFileBase64String: (file: File) => Promise<string> = (
