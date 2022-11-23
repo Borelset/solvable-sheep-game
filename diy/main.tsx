@@ -7,8 +7,15 @@ import { domRelatedOptForTheme } from '../src/utils';
 // import theme from './diy.theme.json';
 import { Theme } from '../src/themes/interface';
 
+/*====================预设文字区域====================*/
+
+// 在第一关和第二关都会出现的字
 const icons = [`柚`, `袖`, `油`, `邮`, `抽`, `饶`, `绕`, `浇`, `挠`, `烧`];
-const icons2 = ['小', '宝', '真', '可', '爱'];
+
+// 只会在第二关出现的字
+const icons2 = ['学', '习', '形', '近', '字'];
+
+/*===================================================*/
 
 export type DefaultSoundNames = 'button-click' | 'triple';
 
