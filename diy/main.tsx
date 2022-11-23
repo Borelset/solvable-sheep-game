@@ -21,8 +21,8 @@ export type DefaultSoundNames = 'button-click' | 'triple';
 
 export const getDefaultTheme: () => Theme<DefaultSoundNames> = () => {
     return {
-        title: '形近字羊了个羊',
-        desc: '学习形近字~',
+        title: '羊了个羊-挑战生字宝宝',
+        desc: '会读会认会消除吗^ ^',
         dark: true,
         maxLevel: 2,
         backgroundColor: '#8dac85',
