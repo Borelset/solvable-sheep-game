@@ -7,7 +7,6 @@ import { ikunTheme } from '../themes/ikun';
 import { pddTheme } from '../themes/pdd';
 import { getDefaultTheme } from '../themes/default';
 import { Theme } from '../themes/interface';
-import WxQrCode from './WxQrCode';
 
 const BuiltinThemes = [
     getDefaultTheme(),
@@ -84,9 +83,7 @@ const ThemeChanger: FC<{
                         ? `translateY(-400px) scale(1)`
                         : 'translateY(0) scale(0)',
                 }}
-            >
-                <WxQrCode />
-            </div>
+            ></div>
         </>
     );
 };

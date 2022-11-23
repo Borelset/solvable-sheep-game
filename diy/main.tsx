@@ -8,6 +8,7 @@ import { domRelatedOptForTheme } from '../src/utils';
 import { Theme } from '../src/themes/interface';
 
 const icons = [`柚`, `袖`, `油`, `邮`, `抽`, `饶`, `绕`, `浇`, `挠`, `烧`];
+const icons2 = ['小', '宝', '真', '可', '爱'];
 
 export type DefaultSoundNames = 'button-click' | 'triple';
 
@@ -16,9 +17,15 @@ export const getDefaultTheme: () => Theme<DefaultSoundNames> = () => {
         title: '形近字羊了个羊',
         desc: '学习形近字~',
         dark: true,
-        maxLevel: 20,
+        maxLevel: 2,
         backgroundColor: '#8dac85',
         icons: icons.map((icon) => ({
+            name: icon,
+            content: icon,
+            clickSound: 'button-click',
+            tripleSound: 'triple',
+        })),
+        icons2: icons2.map((icon) => ({
             name: icon,
             content: icon,
             clickSound: 'button-click',

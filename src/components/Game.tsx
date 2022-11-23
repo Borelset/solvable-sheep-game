@@ -49,9 +49,12 @@ const sceneRanges = [
     [0, 8],
 ];
 const offsets = [0, 25, -25, 50, -50];
-const makeScene: (level: number, icons: Icon[]) => Scene = (level, icons) => {
+const makeScene: (level: number, icons: Icon[], icons2: Icon[]) => Scene = (
+    level,
+    icons,
+    icons2
+) => {
     // 初始图标x2
-    const iconPool = icons.slice(0, 2 * level);
     const offsetPool = offsets.slice(0, 1 + level);
     const scene: Scene = [];
     // 网格范围，随等级由中心扩满
@@ -68,19 +71,27 @@ const makeScene: (level: number, icons: Icon[]) => Scene = (level, icons) => {
             y: row * 100 + offset,
         });
     };
-    // 每间隔5级别增加icon池
-    let compareLevel = level;
-    while (compareLevel > 0) {
-        iconPool.push(
-            ...iconPool.slice(0, Math.min(10, 2 * (compareLevel - 5)))
-        );
-        compareLevel -= 5;
-    }
-    // icon池中每个生成六张卡片
-    for (const icon of iconPool) {
-        for (let i = 0; i < 6; i++) {
-            randomSet(icon);
-        }
+    switch (level) {
+        case 1:
+            for (const icon of icons) {
+                for (let i = 0; i < 3; i++) {
+                    randomSet(icon);
+                }
+            }
+            break;
+        case 2:
+        default:
+            for (const icon of icons) {
+                for (let i = 0; i < 3; i++) {
+                    randomSet(icon);
+                }
+            }
+            for (const icon of icons2) {
+                for (let i = 0; i < 3; i++) {
+                    randomSet(icon);
+                }
+            }
+            break;
     }
     return scene;
 };
@@ -162,7 +173,7 @@ const Game: FC<{
 }> = ({ theme, initLevel = 1, initScore = 0, initTime = 0 }) => {
     const maxLevel = theme.maxLevel || 50;
     const [scene, setScene] = useState<Scene>(
-        makeScene(initLevel, theme.icons)
+        makeScene(initLevel, theme.icons, theme.icons2)
     );
     const [level, setLevel] = useState<number>(initLevel);
     const [score, setScore] = useState<number>(initScore);
@@ -321,7 +332,7 @@ const Game: FC<{
         setFinished(false);
         setLevel(level + 1);
         setQueue([]);
-        checkCover(makeScene(level + 1, theme.icons));
+        checkCover(makeScene(level + 1, theme.icons, theme.icons2));
     };
 
     // 重开
@@ -331,7 +342,7 @@ const Game: FC<{
         setScore(0);
         setLevel(1);
         setQueue([]);
-        checkCover(makeScene(1, theme.icons));
+        checkCover(makeScene(1, theme.icons, theme.icons2));
         setUsedTime(0);
         startTimer(true);
     };
@@ -412,7 +423,7 @@ const Game: FC<{
                 setScore(score + level);
                 setLevel(level + 1);
                 setQueue([]);
-                checkCover(makeScene(level + 1, theme.icons));
+                checkCover(makeScene(level + 1, theme.icons, theme.icons2));
             }
         } else {
             // 更新队列

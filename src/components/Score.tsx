@@ -8,7 +8,6 @@ import {
     USER_ID_STORAGE_KEY,
     USER_NAME_STORAGE_KEY,
 } from '../utils';
-import WxQrCode from './WxQrCode';
 
 const Fireworks = React.lazy(() => import('./Fireworks'));
 
@@ -288,7 +287,6 @@ const Score: FC<{
                         </button>
                     </div>
                 )}
-                {!pure && <WxQrCode />}
             </div>
         </div>
     );
