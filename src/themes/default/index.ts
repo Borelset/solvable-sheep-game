@@ -28,6 +28,12 @@ export const getDefaultTheme: () => Theme<DefaultSoundNames> = () => {
             clickSound: 'button-click',
             tripleSound: 'triple',
         })),
+        icons2: icons.map((icon) => ({
+            name: icon,
+            content: icon,
+            clickSound: 'button-click',
+            tripleSound: 'triple',
+        })),
         sounds: [
             {
                 name: 'button-click',
