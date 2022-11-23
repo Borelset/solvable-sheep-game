@@ -60,5 +60,11 @@ export const ikunTheme: Theme<SoundNames> = {
         clickSound: pictureSoundMap[name],
         tripleSound: '鸡你太美',
     })),
+    icons2: icons.map(({ name, content }) => ({
+        name,
+        content,
+        clickSound: pictureSoundMap[name],
+        tripleSound: '鸡你太美',
+    })),
     sounds,
 };

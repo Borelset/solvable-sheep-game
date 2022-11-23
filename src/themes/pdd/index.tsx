@@ -35,5 +35,11 @@ export const pddTheme: Theme<string> = {
         clickSound: 'button-click',
         tripleSound: name,
     })),
+    icons2: images.map(({ name, content }) => ({
+        name,
+        content,
+        clickSound: 'button-click',
+        tripleSound: name,
+    })),
     sounds,
 };

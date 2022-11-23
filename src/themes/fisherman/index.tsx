@@ -23,5 +23,11 @@ export const fishermanTheme: Theme<DefaultSoundNames> = {
         clickSound: 'button-click',
         tripleSound: 'triple',
     })),
+    icons2: fishes.map(({ name, content }) => ({
+        name,
+        content,
+        clickSound: 'button-click',
+        tripleSound: 'triple',
+    })),
     sounds: [],
 };
