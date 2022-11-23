@@ -18,6 +18,7 @@ import {
 } from '../utils';
 import { copy } from 'clipboard';
 import { CloseIcon } from './CloseIcon';
+import WxQrCode from './WxQrCode';
 
 const InputContainer: FC<{
     label: string;
@@ -66,6 +67,12 @@ const ConfigDialog: FC<{
         sounds: [],
         pure: false,
         icons: new Array(10).fill(0).map(() => ({
+            name: randomString(4),
+            content: '',
+            clickSound: '',
+            tripleSound: '',
+        })),
+        icons2: new Array(10).fill(0).map(() => ({
             name: randomString(4),
             content: '',
             clickSound: '',
@@ -217,6 +224,12 @@ const ConfigDialog: FC<{
                         updateCustomTheme(
                             'icons',
                             customTheme.icons.map((icon, _idx) =>
+                                _idx === idx ? { ...icon, content: res } : icon
+                            )
+                        );
+                        updateCustomTheme(
+                            'icons',
+                            customTheme.icons2.map((icon, _idx) =>
                                 _idx === idx ? { ...icon, content: res } : icon
                             )
                         );
@@ -703,6 +716,7 @@ const ConfigDialog: FC<{
                     🎉🎉🎉恭喜发现彩蛋，生成的主题将开启纯净模式～
                 </div>
             )}
+            <WxQrCode onClick={() => setPureClickTime(pureClickTime + 1)} />
             <div className={'flex-container'}>
                 <button
                     className={'primary flex-grow'}
