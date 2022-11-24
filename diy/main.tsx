@@ -9,11 +9,42 @@ import { Theme } from '../src/themes/interface';
 
 /*====================预设文字区域====================*/
 
-// 在第一关和第二关都会出现的字
-const icons = [`在`, `后`, `问`, `好`, `长`, `比`, `从`, `把`, `我`, `个`,`雨`, `们`,];
+// 仅在第一关出现的字
+const icons = [
+    `在`,
+    `后`,
+    `问`,
+    `好`,
+    `长`,
+    `比`,
+    `从`,
+    `把`,
+    `我`,
+    `个`,
+    `雨`,
+    `们`,
+];
 
-// 只会在第二关出现的字
-const icons2 = [`鸟`,`早`, '来', `去`,'果'];
+// 仅在第二关出现的字
+const icons2 = [
+    `在`,
+    `后`,
+    `问`,
+    `好`,
+    `长`,
+    `比`,
+    `从`,
+    `把`,
+    `我`,
+    `个`,
+    `雨`,
+    `们`,
+    `鸟`,
+    `早`,
+    '来',
+    `去`,
+    '果',
+];
 
 /*===================================================*/
 
@@ -48,7 +79,7 @@ export const getDefaultTheme: () => Theme<DefaultSoundNames> = () => {
                 src: 'https://minio.streakingman.com/solvable-sheep-game/sound-triple.mp3',
             },
         ],
-        bgm: 'AintNoRestForTheWicked.mp3',
+        bgm: 'https://archive.org/download/cage-the-elephant-aint-no-rest/03AintNoRestForTheWicked.mp3',
     };
 };
 

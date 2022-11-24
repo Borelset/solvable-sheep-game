@@ -81,11 +81,6 @@ const makeScene: (level: number, icons: Icon[], icons2: Icon[]) => Scene = (
             break;
         case 2:
         default:
-            for (const icon of icons) {
-                for (let i = 0; i < 3; i++) {
-                    randomSet(icon);
-                }
-            }
             for (const icon of icons2) {
                 for (let i = 0; i < 3; i++) {
                     randomSet(icon);
