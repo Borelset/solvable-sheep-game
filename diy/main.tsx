@@ -74,7 +74,7 @@ export const getDefaultTheme: () => Theme<DefaultSoundNames> = () => {
                 src: 'https://minio.streakingman.com/solvable-sheep-game/sound-triple.mp3',
             },
         ],
-        bgm: 'https://archive.org/download/cage-the-elephant-aint-no-rest/03AintNoRestForTheWicked.mp3',
+        bgm: 'https://archive.org/download/remix-nin-com-audio-22778/boss.angelica - waka waka.mp3',
     };
 };
 
