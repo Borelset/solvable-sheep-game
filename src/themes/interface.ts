@@ -26,6 +26,9 @@ export interface Theme<SoundNames> {
     maxLevel?: number;
     icons: Icon<SoundNames>[];
     icons2: Icon<SoundNames>[];
+    icons3: Icon<SoundNames>[];
+    icons4: Icon<SoundNames>[];
+    icons5: Icon<SoundNames>[];
     sounds: Sound<SoundNames>[];
     operateSoundMap?: Record<Operation, SoundNames>;
 }

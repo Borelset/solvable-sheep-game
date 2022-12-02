@@ -78,6 +78,24 @@ const ConfigDialog: FC<{
             clickSound: '',
             tripleSound: '',
         })),
+        icons3: new Array(10).fill(0).map(() => ({
+            name: randomString(4),
+            content: '',
+            clickSound: '',
+            tripleSound: '',
+        })),
+        icons4: new Array(10).fill(0).map(() => ({
+            name: randomString(4),
+            content: '',
+            clickSound: '',
+            tripleSound: '',
+        })),
+        icons5: new Array(10).fill(0).map(() => ({
+            name: randomString(4),
+            content: '',
+            clickSound: '',
+            tripleSound: '',
+        })),
     });
     function updateCustomTheme(key: keyof CustomTheme, value: any) {
         if (['sounds', 'icons'].includes(key)) {
@@ -230,6 +248,24 @@ const ConfigDialog: FC<{
                         updateCustomTheme(
                             'icons',
                             customTheme.icons2.map((icon, _idx) =>
+                                _idx === idx ? { ...icon, content: res } : icon
+                            )
+                        );
+                        updateCustomTheme(
+                            'icons',
+                            customTheme.icons3.map((icon, _idx) =>
+                                _idx === idx ? { ...icon, content: res } : icon
+                            )
+                        );
+                        updateCustomTheme(
+                            'icons',
+                            customTheme.icons4.map((icon, _idx) =>
+                                _idx === idx ? { ...icon, content: res } : icon
+                            )
+                        );
+                        updateCustomTheme(
+                            'icons',
+                            customTheme.icons5.map((icon, _idx) =>
                                 _idx === idx ? { ...icon, content: res } : icon
                             )
                         );

@@ -37,5 +37,23 @@ export const jinlunTheme: Theme<string> = {
         clickSound: name,
         tripleSound: '起飞啦',
     })),
+    icons3: icons.map(({ name, content }) => ({
+        name,
+        content,
+        clickSound: name,
+        tripleSound: '起飞啦',
+    })),
+    icons4: icons.map(({ name, content }) => ({
+        name,
+        content,
+        clickSound: name,
+        tripleSound: '起飞啦',
+    })),
+    icons5: icons.map(({ name, content }) => ({
+        name,
+        content,
+        clickSound: name,
+        tripleSound: '起飞啦',
+    })),
     sounds,
 };

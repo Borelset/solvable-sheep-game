@@ -34,6 +34,24 @@ export const getDefaultTheme: () => Theme<DefaultSoundNames> = () => {
             clickSound: 'button-click',
             tripleSound: 'triple',
         })),
+        icons3: icons.map((icon) => ({
+            name: icon,
+            content: icon,
+            clickSound: 'button-click',
+            tripleSound: 'triple',
+        })),
+        icons4: icons.map((icon) => ({
+            name: icon,
+            content: icon,
+            clickSound: 'button-click',
+            tripleSound: 'triple',
+        })),
+        icons5: icons.map((icon) => ({
+            name: icon,
+            content: icon,
+            clickSound: 'button-click',
+            tripleSound: 'triple',
+        })),
         sounds: [
             {
                 name: 'button-click',

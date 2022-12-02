@@ -49,16 +49,19 @@ const sceneRanges = [
     [0, 8],
 ];
 const offsets = [0, 25, -25, 50, -50];
-const makeScene: (level: number, icons: Icon[], icons2: Icon[]) => Scene = (
-    level,
-    icons,
-    icons2
-) => {
+const makeScene: (
+    level: number,
+    icons: Icon[],
+    icons2: Icon[],
+    icons3: Icon[],
+    icons4: Icon[],
+    icons5: Icon[]
+) => Scene = (level, icons, icons2, icons3, icons4, icons5) => {
     // 初始图标x2
-    const offsetPool = offsets.slice(0, 1 + level);
+    const offsetPool = offsets.slice(0, 2);
     const scene: Scene = [];
     // 网格范围，随等级由中心扩满
-    const range = sceneRanges[Math.min(4, level - 1)];
+    const range = sceneRanges[Math.min(4, 1)];
     // 在范围内随机摆放图标
     const randomSet = (icon: Icon) => {
         const { offset, row, column } = randomPositionOffset(offsetPool, range);
@@ -74,15 +77,36 @@ const makeScene: (level: number, icons: Icon[], icons2: Icon[]) => Scene = (
     switch (level) {
         case 1:
             for (const icon of icons) {
-                for (let i = 0; i < 3; i++) {
+                for (let i = 0; i < 6; i++) {
                     randomSet(icon);
                 }
             }
             break;
         case 2:
-        default:
             for (const icon of icons2) {
-                for (let i = 0; i < 3; i++) {
+                for (let i = 0; i < 6; i++) {
+                    randomSet(icon);
+                }
+            }
+            break;
+        case 3:
+            for (const icon of icons3) {
+                for (let i = 0; i < 6; i++) {
+                    randomSet(icon);
+                }
+            }
+            break;
+        case 4:
+            for (const icon of icons4) {
+                for (let i = 0; i < 6; i++) {
+                    randomSet(icon);
+                }
+            }
+            break;
+        case 5:
+        default:
+            for (const icon of icons5) {
+                for (let i = 0; i < 6; i++) {
                     randomSet(icon);
                 }
             }
@@ -149,7 +173,7 @@ const Symbol: FC<SymbolProps> = ({ x, y, icon, isCover, status, onClick }) => {
                         <img src={icon.content} alt="" />
                     ) : (
                         /*字符表情*/
-                        <i>{icon.content}</i>
+                        <div>{icon.content}</div>
                     )
                 ) : (
                     /*ReactNode*/
@@ -168,7 +192,14 @@ const Game: FC<{
 }> = ({ theme, initLevel = 1, initScore = 0, initTime = 0 }) => {
     const maxLevel = theme.maxLevel || 50;
     const [scene, setScene] = useState<Scene>(
-        makeScene(initLevel, theme.icons, theme.icons2)
+        makeScene(
+            initLevel,
+            theme.icons,
+            theme.icons2,
+            theme.icons3,
+            theme.icons4,
+            theme.icons5
+        )
     );
     const [level, setLevel] = useState<number>(initLevel);
     const [score, setScore] = useState<number>(initScore);
@@ -276,7 +307,7 @@ const Game: FC<{
             find.status = 0;
             find.x = 100 * (popTime.current % 7);
             popTime.current++;
-            find.y = 800;
+            find.y = 680;
             checkCover(scene);
             // 音效
             if (soundRefMap.current?.['sound-shift']) {
@@ -327,7 +358,16 @@ const Game: FC<{
         setFinished(false);
         setLevel(level + 1);
         setQueue([]);
-        checkCover(makeScene(level + 1, theme.icons, theme.icons2));
+        checkCover(
+            makeScene(
+                level + 1,
+                theme.icons,
+                theme.icons2,
+                theme.icons3,
+                theme.icons4,
+                theme.icons5
+            )
+        );
     };
 
     // 重开
@@ -337,7 +377,16 @@ const Game: FC<{
         setScore(0);
         setLevel(1);
         setQueue([]);
-        checkCover(makeScene(1, theme.icons, theme.icons2));
+        checkCover(
+            makeScene(
+                1,
+                theme.icons,
+                theme.icons2,
+                theme.icons3,
+                theme.icons4,
+                theme.icons5
+            )
+        );
         setUsedTime(0);
         startTimer(true);
     };
@@ -418,7 +467,16 @@ const Game: FC<{
                 setScore(score + level);
                 setLevel(level + 1);
                 setQueue([]);
-                checkCover(makeScene(level + 1, theme.icons, theme.icons2));
+                checkCover(
+                    makeScene(
+                        level + 1,
+                        theme.icons,
+                        theme.icons2,
+                        theme.icons3,
+                        theme.icons4,
+                        theme.icons5
+                    )
+                );
             }
         } else {
             // 更新队列
@@ -471,7 +529,7 @@ const Game: FC<{
                                         ? sortedQueue[item.id]
                                         : -1000
                                 }
-                                y={item.status === 0 ? item.y : 945}
+                                y={item.status === 0 ? item.y : 825}
                                 onClick={() => clickSymbol(idx)}
                             />
                         ))}
